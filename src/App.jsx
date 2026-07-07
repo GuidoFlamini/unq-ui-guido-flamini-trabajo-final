@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
+import Keyboard from './components/keyboard/Keyboard';
 
 
 const handleKeyPress = () => {};
 
 function App() {
-  <div classname='app'>
-    <Keyboard onKeyPress={handleKeyPress}/>
-  </div>
+  return (
+    <div className="app">
+      <Keyboard onKeyPress={handleKeyPress} />
+    </div>
+  );
 }
 
 export default App;
