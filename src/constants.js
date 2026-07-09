@@ -1,0 +1,1 @@
+export const API_URL = 'https://word-api-hmlg.vercel.app'
