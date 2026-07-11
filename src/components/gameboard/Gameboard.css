@@ -1,0 +1,85 @@
+.game-board {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.game-board__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.game-board__timer {
+  font-weight: bold;
+}
+
+.game-board__timer--danger {
+  color: #e5484d;
+}
+
+.chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 32px;
+}
+
+.chain__chip {
+  background-color: #2a2a2c;
+  color: white;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.current-word-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  background-color: #1e1e20;
+  border-radius: 8px;
+}
+
+.current-word-hint__label {
+  font-size: 13px;
+  color: #9a9a9a;
+}
+
+.current-word-hint__word {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.current-word-hint__letter {
+  color: orange;
+}
+
+.current-input {
+  min-height: 32px;
+  padding: 8px 12px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  border: 1px solid #3a3a3c;
+  border-radius: 6px;
+  background-color: #1e1e20;
+  color: white;
+}
+
+.error-message {
+  min-height: 18px;
+  font-size: 13px;
+  color: #e5484d;
+  margin: 0;
+}
