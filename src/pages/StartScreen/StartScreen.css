@@ -1,0 +1,35 @@
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 48px 16px;
+}
+
+.start-screen h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.start-screen p {
+  font-size: 14px;
+  color: #9a9a9a;
+  margin: 0;
+  max-width: 320px;
+}
+
+.start-screen button {
+  margin-top: 12px;
+  padding: 10px 24px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #818384;
+  color: white;
+  cursor: pointer;
+}
+
+.start-screen button:hover {
+  background-color: #9a9b9c;
+}
