@@ -1,0 +1,51 @@
+.end-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.end-screen h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.end-screen p {
+  font-size: 14px;
+  color: #9a9a9a;
+  margin: 0;
+}
+
+.end-screen .chain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 500px;
+  margin: 12px 0;
+}
+
+.end-screen .chain__chip {
+  background-color: #2a2a2c;
+  color: white;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.end-screen button {
+  margin-top: 8px;
+  padding: 10px 24px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #818384;
+  color: white;
+  cursor: pointer;
+}
+
+.end-screen button:hover {
+  background-color: #9a9b9c;
+}
