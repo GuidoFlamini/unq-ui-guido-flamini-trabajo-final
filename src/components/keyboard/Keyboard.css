@@ -1,8 +1,8 @@
 .keyboard {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 0 8px;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -16,17 +16,33 @@
 }
 
 .keyboard-key {
-  font-weight: bold;
-  border: 0;
-  height: 58px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  height: 56px;
   cursor: pointer;
-  background-color: #818384;
-  color: white;
+  background-color: var(--color-surface);
+  color: var(--color-text);
   flex: 1;
   text-transform: uppercase;
+  transition: transform 0.08s ease, background-color 0.12s ease, border-color 0.12s ease;
 }
 
-.keyboard-key-wide {
+.keyboard-key:hover {
+  background-color: var(--color-surface-alt);
+  border-color: var(--color-text-secondary);
+}
+
+.keyboard-key:active {
+  transform: scale(0.95);
+  background-color: var(--color-accent);
+  color: #1a1208;
+  border-color: var(--color-accent);
+}
+
+.keyboard-key--wide {
   flex: 1.5;
   font-size: 12px;
 }

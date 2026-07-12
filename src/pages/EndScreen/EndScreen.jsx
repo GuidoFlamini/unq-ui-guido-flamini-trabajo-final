@@ -23,8 +23,10 @@ function EndScreen({ chain, score, onPlayAgain }) {
       </div>
 
       <div className="end-screen__actions">
-        <button onClick={onPlayAgain}>Ir al Inicio</button>
-        <Link to="/leaderboard" className="end-screen__secondary">
+        <button className="btn-primary" onClick={onPlayAgain}>
+          Ir al inicio
+        </button>
+        <Link to="/leaderboard" className="btn-secondary">
           Ver leaderboard
         </Link>
       </div>

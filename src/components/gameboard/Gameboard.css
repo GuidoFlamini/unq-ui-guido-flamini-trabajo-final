@@ -1,7 +1,7 @@
 .game-board {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-4);
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -11,75 +11,89 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
+  padding: 0 var(--space-1);
+}
+
+.game-board__score {
+  color: var(--color-text-secondary);
 }
 
 .game-board__timer {
-  font-weight: bold;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .game-board__timer--danger {
-  color: #e5484d;
+  color: var(--color-danger);
 }
 
 .chain {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   min-height: 32px;
 }
 
 .chain__chip {
-  background-color: #2a2a2c;
-  color: white;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   font-size: 13px;
   padding: 4px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 .current-word-hint {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 16px;
-  background-color: #1e1e20;
-  border-radius: 8px;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .current-word-hint__label {
-  font-size: 13px;
-  color: #9a9a9a;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
 }
 
 .current-word-hint__word {
+  font-family: var(--font-display);
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .current-word-hint__letter {
-  color: orange;
+  color: var(--color-accent);
 }
 
 .current-input {
   min-height: 32px;
-  padding: 8px 12px;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-display);
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 2px;
-  border: 1px solid #3a3a3c;
-  border-radius: 6px;
-  background-color: #1e1e20;
-  color: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-alt);
 }
 
 .error-message {
   min-height: 18px;
   font-size: 13px;
-  color: #e5484d;
+  color: var(--color-danger);
   margin: 0;
+  text-align: center;
 }

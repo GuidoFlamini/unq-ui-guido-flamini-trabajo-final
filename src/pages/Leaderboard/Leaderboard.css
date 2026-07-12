@@ -2,20 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 32px 16px;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-4);
   max-width: 400px;
   margin: 0 auto;
 }
 
 .leaderboard h2 {
-  font-size: 22px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
   margin: 0;
 }
 
 .leaderboard__empty {
   font-size: 14px;
-  color: #9a9a9a;
+  color: var(--color-text-secondary);
 }
 
 .leaderboard__list {
@@ -25,45 +27,32 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-2);
 }
 
 .leaderboard__item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  background-color: #1e1e20;
-  border-radius: 6px;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .leaderboard__rank {
-  font-weight: bold;
-  color: orange;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-accent);
   width: 20px;
 }
 
 .leaderboard__score {
   flex: 1;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .leaderboard__words {
   font-size: 13px;
-  color: #9a9a9a;
-}
-
-.leaderboard button {
-  margin-top: 8px;
-  padding: 10px 24px;
-  font-size: 16px;
-  border: 0;
-  border-radius: 6px;
-  background-color: #818384;
-  color: white;
-  cursor: pointer;
-}
-
-.leaderboard button:hover {
-  background-color: #9a9b9c;
+  color: var(--color-text-secondary);
 }

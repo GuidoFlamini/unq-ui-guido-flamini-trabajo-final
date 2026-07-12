@@ -24,7 +24,9 @@ function Leaderboard() {
         </ol>
       )}
 
-      <button onClick={() => navigate(-1)}>Volver</button>
+      <button className="btn-secondary" onClick={() => navigate(-1)}>
+        Volver
+      </button>
     </div>
   );
 }

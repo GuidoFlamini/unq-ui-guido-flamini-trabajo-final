@@ -2,52 +2,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
   text-align: center;
-  padding: 48px 16px;
+  padding: var(--space-8) var(--space-4);
 }
 
 .start-screen h1 {
-  font-size: 24px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
 .start-screen p {
   font-size: 14px;
-  color: #9a9a9a;
-  margin: 0;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-2);
   max-width: 320px;
 }
 
-.start-screen button {
-  margin-top: 12px;
-  padding: 10px 24px;
-  font-size: 16px;
-  border: 0;
-  border-radius: 6px;
-  background-color: #818384;
-  color: white;
-  cursor: pointer;
+.start-screen .btn-primary {
+  min-width: 180px;
 }
 
-.start-screen button:hover {
-  background-color: #9a9b9c;
-}
-
-.start-screen__secondary {
-  display: inline-block;
-  text-decoration: none;
-  margin-top: 12px;
-  padding: 10px 24px;
-  font-size: 16px;
-  border-radius: 6px;
-  background-color: transparent;
-  border: 1px solid #3a3a3c;
-  color: #9a9a9a;
-  cursor: pointer;
-}
-
-.start-screen__secondary:hover {
-  border-color: #9a9a9a;
-  color: white;
+.start-screen .btn-secondary {
+  min-width: 180px;
 }
