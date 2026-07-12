@@ -1,0 +1,69 @@
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.leaderboard h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.leaderboard__empty {
+  font-size: 14px;
+  color: #9a9a9a;
+}
+
+.leaderboard__list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.leaderboard__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: #1e1e20;
+  border-radius: 6px;
+}
+
+.leaderboard__rank {
+  font-weight: bold;
+  color: orange;
+  width: 20px;
+}
+
+.leaderboard__score {
+  flex: 1;
+  font-weight: bold;
+}
+
+.leaderboard__words {
+  font-size: 13px;
+  color: #9a9a9a;
+}
+
+.leaderboard button {
+  margin-top: 8px;
+  padding: 10px 24px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #818384;
+  color: white;
+  cursor: pointer;
+}
+
+.leaderboard button:hover {
+  background-color: #9a9b9c;
+}

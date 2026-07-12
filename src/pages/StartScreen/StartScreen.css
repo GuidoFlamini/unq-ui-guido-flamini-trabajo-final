@@ -33,3 +33,21 @@
 .start-screen button:hover {
   background-color: #9a9b9c;
 }
+
+.start-screen__secondary {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 12px;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid #3a3a3c;
+  color: #9a9a9a;
+  cursor: pointer;
+}
+
+.start-screen__secondary:hover {
+  border-color: #9a9a9a;
+  color: white;
+}

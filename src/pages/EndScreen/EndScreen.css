@@ -18,6 +18,12 @@
   margin: 0;
 }
 
+.end-screen__highlight {
+  color: orange;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 .end-screen .chain {
   display: flex;
   flex-wrap: wrap;
@@ -35,8 +41,13 @@
   border-radius: 999px;
 }
 
-.end-screen button {
+.end-screen__actions {
+  display: flex;
+  gap: 8px;
   margin-top: 8px;
+}
+
+.end-screen button {
   padding: 10px 24px;
   font-size: 16px;
   border: 0;
@@ -48,4 +59,21 @@
 
 .end-screen button:hover {
   background-color: #9a9b9c;
+}
+
+.end-screen__secondary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid #3a3a3c;
+  color: #9a9a9a;
+  cursor: pointer;
+}
+
+.end-screen__secondary:hover {
+  border-color: #9a9a9a;
+  color: white;
 }

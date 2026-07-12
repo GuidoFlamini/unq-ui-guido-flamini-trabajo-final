@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { calculateScore, getInvalidReason } from '../utils/gameLogic';
+import { saveScore } from '../utils/leaderboard';
 
 const TURN_DURATION = 15;
 
@@ -32,6 +33,12 @@ export function useGame() {
 
     return () => clearInterval(intervalRef.current);
   }, [state.status, state.chain.length]);
+
+  useEffect(() => {
+    if (state.status === 'finished') {
+      saveScore(state.score, state.chain.length);
+    }
+  }, [state.status]);
 
   function startGame() {
     setState({ ...INITIAL_STATE, status: 'playing' });
