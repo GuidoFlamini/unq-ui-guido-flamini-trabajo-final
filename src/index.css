@@ -9,8 +9,8 @@
   --color-text: #f2f2f2;
   --color-text-secondary: #8f8f94;
 
-  --color-accent: #f2a154;
-  --color-accent-hover: #f6b578;
+  --color-accent: #fcd053;       /* Más claro, muy cálido y vibrante sobre negro */
+  --color-accent-hover: #fde081; /* Súper luminoso para el interactivo */
   --color-danger: #e5484d;
 
   --font-display: 'Space Grotesk', sans-serif;

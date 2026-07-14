@@ -51,8 +51,5 @@
 }
 
 .btn-leaderboard {
-  background-color: transparent;
-  border-color: var(--color-border);
-  color: var(--color-text-secondary);
   padding-top: 10px;
 }
