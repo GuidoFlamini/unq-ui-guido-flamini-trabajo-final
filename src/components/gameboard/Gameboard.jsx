@@ -1,5 +1,5 @@
 import { ERROR_MESSAGES } from '../../utils/gameLogic';
-import './GameBoard.css';
+import './Gameboard.css';
 
 function CurrentWordHint({ chain }) {
   const lastWord = chain.at(-1)?.word;
