@@ -1,16 +1,54 @@
-# React + Vite
+# Palabras Encadenadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Juego de palabras encadenadas desarrollado en React. El objetivo es formar la cadena más larga posible de palabras válidas antes de que se agote el tiempo, encadenando cada palabra nueva a partir de la última letra de la anterior.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Validación de palabras contra el diccionario español mediante la API provista por la cátedra.
+- Encadenamiento de palabras: cada palabra nueva debe comenzar con la última letra de la anterior.
+- Puntaje acumulado (1 punto por letra).
+- Temporizador de 15 segundos por turno, que se reinicia con cada palabra válida.
+- Mensajes de error claros: palabra inexistente, ya utilizada, o que no respeta el encadenamiento.
+- Pantalla de fin de partida con resumen de palabras encadenadas y puntaje final.
+- Teclado en pantalla, con soporte también para teclado físico.
+- Interfaz responsive.
+- Posibilidad de jugar más de una partida.
+- Leaderboard local con los mejores 10 puntajes, persistido en `localStorage`.
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + Vite
+- React Router (navegación entre el juego y el leaderboard)
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/GuidoFlamini/unq-ui-guido-flamini-trabajo-final.git
+cd unq-ui-guido-flamini-trabajo-final
+```
+
+Instalar las dependencias:
+
+```bash
+npm install
+```
+
+## Ejecución local
+
+```bash
+npm run dev
+```
+
+Por defecto queda levantado en `http://localhost:5173`.
+
+## Cómo jugar
+
+1. Presionar **Jugar** para iniciar una partida.
+2. Ingresar una palabra cualquiera para arrancar la cadena.
+3. Cada palabra siguiente debe empezar con la última letra de la palabra anterior, existir en el diccionario, y no haber sido usada antes en la partida.
+4. Cada palabra válida suma puntos (1 por letra) y reinicia el contador de 15 segundos.
+5. La partida termina cuando se agota el tiempo. Se puede volver a jugar o consultar el leaderboard local.
+
+
