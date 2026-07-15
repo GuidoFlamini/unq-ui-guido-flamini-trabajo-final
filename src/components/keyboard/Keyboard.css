@@ -8,6 +8,16 @@
   margin: 0 auto;
 }
 
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .keyboard-row {
   display: flex;
   justify-content: center;
@@ -45,4 +55,25 @@
 .keyboard-key--wide {
   flex: 1.5;
   font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .keyboard {
+    gap: var(--space-1);
+    padding: 0 var(--space-1);
+  }
+
+  .keyboard-row {
+    gap: 4px;
+  }
+
+  .keyboard-key {
+    height: 44px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+
+  .keyboard-key--wide {
+    font-size: 10px;
+  }
 }
