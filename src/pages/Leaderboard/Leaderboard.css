@@ -1,0 +1,58 @@
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-4);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.leaderboard h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.leaderboard__empty {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.leaderboard__list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.leaderboard__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.leaderboard__rank {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-accent);
+  width: 20px;
+}
+
+.leaderboard__score {
+  flex: 1;
+  font-weight: 600;
+}
+
+.leaderboard__words {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
