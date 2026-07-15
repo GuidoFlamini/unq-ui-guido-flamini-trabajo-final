@@ -1,7 +1,7 @@
 export async function validateWord(word) {
   try {
     const res = await fetch(
-      `https://word-api-hmlg.vercel.app/api/validate?word=${word}`
+      `https://word-api-hmlg.vercel.app/api/validate?word=${encodeURIComponent(word)}`
     );
 
     if (!res.ok) {

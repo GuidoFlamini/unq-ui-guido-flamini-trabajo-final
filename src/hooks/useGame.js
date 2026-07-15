@@ -68,6 +68,16 @@ export function useGame() {
 
     const result = await validateWord(normalizedWord);
 
+    let gameHasFinished = false;
+    setState((prev) => {
+      if (prev.status !== 'playing') {
+        gameHasFinished = true;
+      }
+      return prev;
+    });
+
+    if (gameHasFinished) return; 
+
     if (!result.success) {
       setState((prev) => ({ ...prev, error: result.error, isChecking: false }));
       return;
