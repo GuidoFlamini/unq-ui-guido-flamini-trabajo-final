@@ -1,4 +1,4 @@
-# Palabras Encadenadas
+# El jueguito de las palabritas
 
 Juego de palabras encadenadas desarrollado en React. El objetivo es formar la cadena más larga posible de palabras válidas antes de que se agote el tiempo, encadenando cada palabra nueva a partir de la última letra de la anterior.
 
