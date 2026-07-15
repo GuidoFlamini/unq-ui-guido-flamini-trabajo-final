@@ -21,4 +21,5 @@ export const ERROR_MESSAGES = {
   DOES_NOT_EXIST: 'La palabra no existe.',
   ALREADY_USED: 'La palabra ya fue utilizada.',
   INVALID_CHAINING: 'La palabra no respeta la regla de encadenamiento.',
+  NETWORK_ERROR: 'Sin conexión. Revisá tu internet e intentá de nuevo.',
 };

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { calculateScore, getInvalidReason } from '../utils/gameLogic';
 import { saveScore } from '../utils/leaderboard';
+import { validateWord } from '../utils/wordApi';
 
 const TURN_DURATION = 15;
 
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
   timeLeft: TURN_DURATION,
   status: 'idle',
   error: null,
+  isChecking: false,
 };
 
 export function useGame() {
@@ -38,7 +40,7 @@ export function useGame() {
     if (state.status === 'finished') {
       saveScore(state.score, state.chain.length);
     }
-  }, [state.status]);
+  }, [state.chain.length, state.score, state.status]);
 
   function startGame() {
     setState({ ...INITIAL_STATE, status: 'playing' });
@@ -62,13 +64,17 @@ export function useGame() {
       return;
     }
 
-    const res = await fetch(
-      `https://word-api-hmlg.vercel.app/api/validate?word=${normalizedWord}`
-    );
-    const data = await res.json();
+    setState((prev) => ({ ...prev, isChecking: true, error: null }));
 
-    if (!data.exists) {
-      setState((prev) => ({ ...prev, error: 'DOES_NOT_EXIST' }));
+    const result = await validateWord(normalizedWord);
+
+    if (!result.success) {
+      setState((prev) => ({ ...prev, error: result.error, isChecking: false }));
+      return;
+    }
+
+    if (!result.exists) {
+      setState((prev) => ({ ...prev, error: 'DOES_NOT_EXIST', isChecking: false }));
       return;
     }
 
@@ -81,12 +87,13 @@ export function useGame() {
       score: prev.score + points,
       timeLeft: TURN_DURATION,
       error: null,
+      isChecking: false,
     }));
     setCurrentWord('');
   }
 
   function handleKeyPress(key) {
-    if (state.status !== 'playing') return;
+    if (state.status !== 'playing' || state.isChecking) return;
 
     if (key === 'ENTER') {
       submitWord(currentWord);
