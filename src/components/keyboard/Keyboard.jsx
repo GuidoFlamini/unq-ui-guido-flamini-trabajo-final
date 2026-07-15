@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import './Keyboard.css';
 
 const KEYBOARD_ROWS = [
@@ -8,38 +8,42 @@ const KEYBOARD_ROWS = [
 ];
 
 const Keyboard = ({ onKeyPress }) => {
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      const key = event.key;
+    containerRef.current?.focus();
+  }, []);
 
-      if (key === 'Enter' || key === 'Backspace' || /^[a-zA-Z]$/.test(key)) {
-        event.preventDefault();
+  const handleKeyDown = (event) => {
+    const key = event.key;
 
-        onKeyPress(key.toUpperCase());
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onKeyPress]);
+    if (key === 'Enter' || key === 'Backspace' || /^[a-zA-Z]$/.test(key)) {
+      event.preventDefault();
+      onKeyPress(key.toUpperCase());
+    }
+  };
 
   const handleClick = (key) => {
     onKeyPress(key.toUpperCase());
   };
 
   return (
-    <div className="keyboard">
+    <div
+      className="keyboard"
+      tabIndex={-1}
+      ref={containerRef}
+      onKeyDown={handleKeyDown}
+    >
       {KEYBOARD_ROWS.map((row, rowIndex) => (
         <div key={rowIndex} className="keyboard-row">
           {row.map((key) => (
             <button
               key={key}
               type="button"
-              className={`keyboard-key${key.length > 1 ? ' keyboard-key-wide' : ''}`}
+              className={`keyboard-key${key.length > 1 ? ' keyboard-key--wide' : ''}`}
               onClick={() => handleClick(key)}
             >
-              {key === 'Backspace' ? '⌫' : key}
+              {key === 'Backspace' ? '⌫' : key === 'Enter' ? '⏎' : key}
             </button>
           ))}
         </div>
