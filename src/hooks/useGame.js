@@ -20,6 +20,7 @@ export function useGame() {
   const [currentWord, setCurrentWord] = useState('');
   const intervalRef = useRef(null);
 
+  // 1. EL TEMPORIZADOR INTELIGENTE
   useEffect(() => {
     if (state.status !== 'playing') return;
 
@@ -27,6 +28,13 @@ export function useGame() {
       setState((prev) => {
         if (prev.timeLeft <= 1) {
           clearInterval(intervalRef.current);
+          
+          // Si estamos esperando la API, nos quedamos en 0 pero NO terminamos el juego (suspenso)
+          if (prev.isChecking) {
+            return { ...prev, timeLeft: 0 }; 
+          }
+          
+          // Si no hay nada pendiente, el juego termina normalmente
           return { ...prev, timeLeft: 0, status: 'finished' };
         }
         return { ...prev, timeLeft: prev.timeLeft - 1 };
@@ -34,7 +42,7 @@ export function useGame() {
     }, 1000);
 
     return () => clearInterval(intervalRef.current);
-  }, [state.status, state.chain.length]);
+  }, [state.status, state.chain.length]); // chain.length ayuda a reiniciar el intervalo cuando se suma una palabra
 
   useEffect(() => {
     if (state.status === 'finished') {
@@ -68,23 +76,17 @@ export function useGame() {
 
     const result = await validateWord(normalizedWord);
 
-    let gameHasFinished = false;
-    setState((prev) => {
-      if (prev.status !== 'playing') {
-        gameHasFinished = true;
-      }
-      return prev;
-    });
-
-    if (gameHasFinished) return; 
-
-    if (!result.success) {
-      setState((prev) => ({ ...prev, error: result.error, isChecking: false }));
-      return;
-    }
-
-    if (!result.exists) {
-      setState((prev) => ({ ...prev, error: 'DOES_NOT_EXIST', isChecking: false }));
+    if (!result.success || !result.exists) {
+      setState((prev) => {
+        const isTimeUp = prev.timeLeft === 0;
+        
+        return {
+          ...prev,
+          error: !result.success ? result.error : 'DOES_NOT_EXIST',
+          isChecking: false,
+          status: isTimeUp ? 'finished' : 'playing'
+        };
+      });
       return;
     }
 
@@ -95,7 +97,8 @@ export function useGame() {
       chain: [...prev.chain, { word: normalizedWord, points }],
       usedWords: new Set(prev.usedWords).add(normalizedWord),
       score: prev.score + points,
-      timeLeft: TURN_DURATION,
+      timeLeft: TURN_DURATION, 
+      status: 'playing',       
       error: null,
       isChecking: false,
     }));
@@ -105,17 +108,19 @@ export function useGame() {
   function handleKeyPress(key) {
     if (state.status !== 'playing' || state.isChecking) return;
 
-    if (key === 'ENTER') {
+    const upperKey = key.toUpperCase();
+
+    if (upperKey === 'ENTER') {
       submitWord(currentWord);
       return;
     }
 
-    if (key === 'BACKSPACE') {
+    if (upperKey === 'BACKSPACE') {
       setCurrentWord((prev) => prev.slice(0, -1));
       return;
     }
 
-    if (/^[A-ZÑ]$/.test(key)) {
+    if (/^[A-ZÑ]$/i.test(key)) {
       setCurrentWord((prev) => prev + key.toLowerCase());
     }
   }
