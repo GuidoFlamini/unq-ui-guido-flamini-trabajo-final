@@ -20,7 +20,6 @@ export function useGame() {
   const [currentWord, setCurrentWord] = useState('');
   const intervalRef = useRef(null);
 
-  // 1. EL TEMPORIZADOR INTELIGENTE
   useEffect(() => {
     if (state.status !== 'playing') return;
 
@@ -29,12 +28,10 @@ export function useGame() {
         if (prev.timeLeft <= 1) {
           clearInterval(intervalRef.current);
           
-          // Si estamos esperando la API, nos quedamos en 0 pero NO terminamos el juego (suspenso)
           if (prev.isChecking) {
             return { ...prev, timeLeft: 0 }; 
           }
           
-          // Si no hay nada pendiente, el juego termina normalmente
           return { ...prev, timeLeft: 0, status: 'finished' };
         }
         return { ...prev, timeLeft: prev.timeLeft - 1 };
@@ -42,7 +39,7 @@ export function useGame() {
     }, 1000);
 
     return () => clearInterval(intervalRef.current);
-  }, [state.status, state.chain.length]); // chain.length ayuda a reiniciar el intervalo cuando se suma una palabra
+  }, [state.status, state.chain.length]); 
 
   useEffect(() => {
     if (state.status === 'finished') {
