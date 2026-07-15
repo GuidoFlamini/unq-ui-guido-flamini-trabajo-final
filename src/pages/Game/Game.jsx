@@ -1,6 +1,6 @@
 import { useGame } from '../../hooks/useGame';
 import StartScreen from '../StartScreen/StartScreen';
-import GameBoard from '../../components/gameboard/GameBoard';
+import GameBoard from '../../components/gameboard/Gameboard';
 import EndScreen from '../EndScreen/EndScreen';
 import Keyboard from '../../components/keyboard/Keyboard';
 
